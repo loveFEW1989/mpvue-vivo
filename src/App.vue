@@ -1,5 +1,24 @@
 <script>
 export default {
+  onLaunch() {
+    wx.getSetting({
+      success(res) {
+        if(res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+          
+            success: (result)=>{
+              console.log(result.userInfo)
+            }
+          })
+        }else {
+          wx.reLaunch({
+            url: '/pages/authorize/main'
+          })
+            
+        }
+      }
+    })
+  },
   created () {
     // 调用API从本地缓存中获取数据
     /*

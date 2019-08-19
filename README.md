@@ -1,7 +1,7 @@
 # mpvue-vivo
 
 > A Mpvue project
-## mpvue仿vivo小程序
+
 ## Build Setup
 
 ``` bash

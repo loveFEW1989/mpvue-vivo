@@ -46,7 +46,8 @@ let baseWebpackConfig = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue': 'mpvue',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'axios': 'axios/dist/axios'
     },
     symlinks: false,
     aliasFields: ['mpvue', 'weapp', 'browser'],
@@ -54,6 +55,10 @@ let baseWebpackConfig = {
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader!stylus-loader'
+      },
       {
         test: /\.vue$/,
         loader: 'mpvue-loader',
