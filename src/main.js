@@ -22,7 +22,24 @@ Vue.prototype.getHome = function( ) {
   })
   wx.hideLoading()
 }
-
+Vue.prototype.getClass = function( ) {
+  wx.showLoading({
+    title:'加载中...'
+  })
+  
+  this.$get('https://www.easy-mock.com/mock/5d5a063f6092430999fb51be/demo/getClass')
+  .then((res) => {
+    console.log(res)
+    if(res.data.code === 0) {
+       console.log(res.data.data)
+      this.goodsList = res.data.data.navigationList
+      
+      
+    }
+   
+  })
+  wx.hideLoading()
+}
 Vue.config.productionTip = false
 App.mpType = 'app'
 
